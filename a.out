@@ -1,0 +1,94 @@
+#! /usr/local/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/lib/ivl/v2009.vpi";
+S_0x1d8d56e0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x1d8d5870 .scope module, "tb_mux4to1" "tb_mux4to1" 3 2;
+ .timescale 0 0;
+v0x1d8ed610_0 .var "in", 3 0;
+v0x1d8ed6d0_0 .net "out_assign", 0 0, L_0x1d8ee3e0;  1 drivers
+v0x1d8ed7a0_0 .var "sel", 1 0;
+S_0x1d8b0580 .scope module, "mux_assign" "mux4to1_assign" 3 11, 4 2 0, S_0x1d8d5870;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "sel";
+    .port_info 1 /INPUT 4 "in";
+    .port_info 2 /OUTPUT 1 "out";
+L_0x7f4aaa92d018 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x1d8b07b0_0 .net/2u *"_ivl_0", 1 0, L_0x7f4aaa92d018;  1 drivers
+v0x1d8ec8e0_0 .net *"_ivl_11", 0 0, L_0x1d8edbf0;  1 drivers
+L_0x7f4aaa92d0a8 .functor BUFT 1, C4<10>, C4<0>, C4<0>, C4<0>;
+v0x1d8ec9c0_0 .net/2u *"_ivl_12", 1 0, L_0x7f4aaa92d0a8;  1 drivers
+v0x1d8ecab0_0 .net *"_ivl_14", 0 0, L_0x1d8edd20;  1 drivers
+v0x1d8ecb70_0 .net *"_ivl_17", 0 0, L_0x1d8ede80;  1 drivers
+v0x1d8ecca0_0 .net *"_ivl_19", 0 0, L_0x1d8edff0;  1 drivers
+v0x1d8ecd80_0 .net *"_ivl_2", 0 0, L_0x1d8ed8a0;  1 drivers
+v0x1d8ece40_0 .net *"_ivl_20", 0 0, L_0x1d8ee090;  1 drivers
+v0x1d8ecf20_0 .net *"_ivl_22", 0 0, L_0x1d8ee250;  1 drivers
+v0x1d8ed090_0 .net *"_ivl_5", 0 0, L_0x1d8eda10;  1 drivers
+L_0x7f4aaa92d060 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v0x1d8ed170_0 .net/2u *"_ivl_6", 1 0, L_0x7f4aaa92d060;  1 drivers
+v0x1d8ed250_0 .net *"_ivl_8", 0 0, L_0x1d8edb00;  1 drivers
+v0x1d8ed310_0 .net "in", 3 0, v0x1d8ed610_0;  1 drivers
+v0x1d8ed3f0_0 .net "out", 0 0, L_0x1d8ee3e0;  alias, 1 drivers
+v0x1d8ed4b0_0 .net "sel", 1 0, v0x1d8ed7a0_0;  1 drivers
+L_0x1d8ed8a0 .cmp/eq 2, v0x1d8ed7a0_0, L_0x7f4aaa92d018;
+L_0x1d8eda10 .part v0x1d8ed610_0, 0, 1;
+L_0x1d8edb00 .cmp/eq 2, v0x1d8ed7a0_0, L_0x7f4aaa92d060;
+L_0x1d8edbf0 .part v0x1d8ed610_0, 1, 1;
+L_0x1d8edd20 .cmp/eq 2, v0x1d8ed7a0_0, L_0x7f4aaa92d0a8;
+L_0x1d8ede80 .part v0x1d8ed610_0, 2, 1;
+L_0x1d8edff0 .part v0x1d8ed610_0, 3, 1;
+L_0x1d8ee090 .functor MUXZ 1, L_0x1d8edff0, L_0x1d8ede80, L_0x1d8edd20, C4<>;
+L_0x1d8ee250 .functor MUXZ 1, L_0x1d8ee090, L_0x1d8edbf0, L_0x1d8edb00, C4<>;
+L_0x1d8ee3e0 .functor MUXZ 1, L_0x1d8ee250, L_0x1d8eda10, L_0x1d8ed8a0, C4<>;
+    .scope S_0x1d8d5870;
+T_0 ;
+    %vpi_call/w 3 19 "$dumpfile", "mux4to1_assign.vcd" {0 0 0};
+    %vpi_call/w 3 20 "$dumpvars" {0 0 0};
+    %vpi_call/w 3 21 "$display", "Time\011Sel\011In\011Assign\011Case\011If" {0 0 0};
+    %vpi_call/w 3 22 "$monitor", "%0t\011%02b\011%b\011%b\011%b\011%b", $time, v0x1d8ed7a0_0, v0x1d8ed610_0, v0x1d8ed6d0_0 {0 0 0};
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v0x1d8ed610_0, 0, 4;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x1d8ed610_0, 0, 4;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v0x1d8ed7a0_0, 0, 2;
+    %delay 10, 0;
+    %vpi_call/w 3 38 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "testbench.sv";
+    "design.sv";
